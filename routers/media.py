@@ -23,7 +23,7 @@ def get_db():
 #Routers
 media=APIRouter()
 
-@media.post("/save_media/")
+@media.patch("/save_media/")
 async def create_media(file: UploadFile = File(...),db:Session=Depends(get_db)):
     """Endpoint para guardar un archivo"""
     fileSt = await file.read()

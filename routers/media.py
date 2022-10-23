@@ -1,3 +1,4 @@
+from encodings.utf_8 import encode
 from io import BytesIO
 from fastapi import APIRouter,Depends, File,HTTPException
 
@@ -26,9 +27,9 @@ media=APIRouter()
 async def create_media(file: UploadFile = File(...),db:Session=Depends(get_db)):
     """Endpoint para guardar un archivo"""
     fileSt = await file.read()
-    return media_internal.create_media(db=db,file=fileSt)
+    return media_internal.create_media(db=db,fileS=fileSt)
 
-@media.get("/save_medias/")
+@media.get("/save_media/")
 async def get_medias(skip:int=0, limit:int=100,db:Session=Depends(get_db)):
     """"""
     return media_internal.get_medias(db, skip, limit)

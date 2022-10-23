@@ -6,7 +6,29 @@ from routers.phone import phone
 from routers.media import media
 import uvicorn
 
+
+
+from fastapi.middleware.cors import CORSMiddleware
+
+
+origins = [
+    "http://localhost/*",
+    "http://localhost",
+    "http://localhost:5000/*",
+    "http://localhost:5137/*",
+    "http://localhost:4137/*",
+    "https://app-canela.herokuapp.com/*"
+]
+
 app=FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.include_router(phone)
 app.include_router(media)
 

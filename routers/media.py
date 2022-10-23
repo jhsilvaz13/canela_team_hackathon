@@ -23,9 +23,14 @@ def get_db():
 media=APIRouter()
 
 @media.post("/save_media/")
-async def create_phone(file: UploadFile = File(...),db:Session=Depends(get_db)):
-    """Return """
+async def create_media(file: UploadFile = File(...),db:Session=Depends(get_db)):
+    """Endpoint para guardar un archivo"""
     fileSt = await file.read()
-    media_internal.create_media(db=db,file=fileSt)
+    return media_internal.create_media(db=db,file=fileSt)
+
+@media.get("/save_medias/")
+async def get_medias(skip:int=0, limit:int=100,db:Session=Depends(get_db)):
+    """"""
+    return media_internal.get_medias(db, skip, limit)
 
 

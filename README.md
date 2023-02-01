@@ -1,4 +1,3 @@
-# Eureka Home
 
 [![technology FastAPI](https://img.shields.io/badge/technology-FastAPI-GREEN.svg)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/github/license/hprose/hprose-golang.svg)](http://opensource.org/licenses/MIT)
